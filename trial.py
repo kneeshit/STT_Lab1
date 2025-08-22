@@ -39,7 +39,6 @@ def main():
     print("=== Python Trial Program ===")
     name = input("Enter your name: ")
     greet_user(name)
-
     try:
         count = int(input("How many random numbers to generate? (10-20): "))
         if count < 10 or count > 20:
@@ -65,3 +64,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
