@@ -1,67 +1,89 @@
-import random
-import math
+"""
+trial.py - Demonstrates Python basics for Lab Assignment 1.
+Includes variables, functions, loops, classes, and Pylint workflow testing.
+"""
 
-# trial.py
+NAME = "Nishit"
+AGE = 25
 
 
-def greet_user(name):
-    print(f"Hello, {name}! Welcome to the Python trial.")
+def greet_user(user_name: str) -> str:
+    """
+    Return a greeting message for the given name.
 
-def generate_random_numbers(count, lower=1, upper=100):
-    numbers = []
-    for _ in range(count):
-        num = random.randint(lower, upper)
-        numbers.append(num)
-    return numbers
+    Args:
+        user_name (str): The name of the user.
 
-def calculate_statistics(numbers):
-    total = sum(numbers)
-    mean = total / len(numbers)
-    minimum = min(numbers)
-    maximum = max(numbers)
-    variance = sum((x - mean) ** 2 for x in numbers) / len(numbers)
-    stddev = math.sqrt(variance)
-    return {
-        'total': total,
-        'mean': mean,
-        'min': minimum,
-        'max': maximum,
-        'variance': variance,
-        'stddev': stddev
-    }
+    Returns:
+        str: Greeting message including the user's name and age.
+    """
+    return f"Hello, {user_name}! You are {AGE} years old."
 
-def print_statistics(stats):
-    print("Statistics:")
-    for key, value in stats.items():
-        print(f"  {key}: {value:.2f}")
 
-def main():
-    print("=== Python Trial Program ===")
-    name = input("Enter your name: ")
-    greet_user(name)
+def arithmetic_operations(num1: int, num2: int) -> None:
+    """
+    Perform basic arithmetic operations on two numbers and print the results.
 
-    try:
-        count = int(input("How many random numbers to generate? (10-20): "))
-        if count < 10 or count > 20:
-            print("Count must be between 10 and 20. Using default value 10.")
-            count = 10
-    except ValueError:
-        print("Invalid input. Using default value 10.")
-        count = 10
+    Args:
+        num1 (int): The first number.
+        num2 (int): The second number.
+    """
+    print("Sum:", num1 + num2)
+    print("Difference:", num2 - num1)
+    print("Product:", num1 * num2)
+    print("Division:", num2 / num1)
 
-    numbers = generate_random_numbers(count)
-    print(f"Generated numbers: {numbers}")
 
-    stats = calculate_statistics(numbers)
-    print_statistics(stats)
+def display_fruits(fruit_list: list) -> None:
+    """
+    Display the list of fruits.
 
-    print("Numbers sorted ascending:")
-    print(sorted(numbers))
+    Args:
+        fruit_list (list): A list of fruits to display.
+    """
+    print("\nFruits list:")
+    for fruit in fruit_list:
+        print(f"- {fruit}")
 
-    print("Numbers sorted descending:")
-    print(sorted(numbers, reverse=True))
 
-    print("Thank you for using the trial program!")
+class Animal:
+    """Represent an animal with a name and a sound."""
+
+    def __init__(self, animal_name: str, sound: str) -> None:
+        """
+        Initialize the Animal class.
+
+        Args:
+            animal_name (str): The name of the animal.
+            sound (str): The sound the animal makes.
+        """
+        self.animal_name = animal_name
+        self.sound = sound
+
+    def make_sound(self) -> None:
+        """Print the sound of the animal."""
+        print(f"The {self.animal_name} says {self.sound}!")
+
+    def change_name(self, new_name: str) -> None:
+        """
+        Change the name of the animal.
+
+        Args:
+            new_name (str): The new name of the animal.
+        """
+        self.animal_name = new_name
+        print(f"The animal's name has been changed to {self.animal_name}.")
+
 
 if __name__ == "__main__":
-    main()
+    print(greet_user(NAME))
+
+    # Perform arithmetic operations
+    NUM1, NUM2 = 10, 20
+    arithmetic_operations(NUM1, NUM2)
+
+    # Display fruits
+    FRUITS = ["apple", "banana", "cherry"]
+    display_fruits(FRUITS)
+
+    # Demonstrate class usag
