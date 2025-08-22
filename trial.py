@@ -3,7 +3,7 @@ trial.py - Demonstrates Python basics for Lab Assignment 1.
 Includes variables, functions, loops, classes, and Pylint workflow testing.
 """
 
-NAME = "Nishit"
+NAME = "Alice"
 AGE = 25
 
 
@@ -86,4 +86,10 @@ if __name__ == "__main__":
     FRUITS = ["apple", "banana", "cherry"]
     display_fruits(FRUITS)
 
-    # Demonstrate class usag
+    # Demonstrate class usage
+    dog = Animal("dog", "woof")
+    dog.make_sound()
+
+    # Changing the animal's name
+    dog.change_name("puppy")
+    dog.make_sound()
